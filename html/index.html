@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Address Printing</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/keybindings.lib.js"></script>
+    <script src="../js/helper.js"></script>
+    <script src="../js/masters.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/initialize.index.js"></script>
+    <script src="../js/functions.index.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="developer-details">
+                <div>
+                    <span>Developed By : </span>
+                    <a href="mailto:contact.aumtechnolabs@gmail.com"><span>@Aum Technology</span></a>
+                </div>
+            </div>
+            <div class="main">
+                <div class="div-receiver">
+                    <div class="div-heading">
+                        <div class="section-heading">
+                            Receiver Section
+                        </div>
+                    </div>
+                    <div class="div-box">
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Code</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_code" id="receiver_code"
+                                    list="receiver_code_list" />
+                                <datalist id="receiver_code_list">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Name</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver" id="receiver" list="receiver_list"
+                                    maxlength="70" />
+                                <datalist id="receiver_list">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 1</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_address_line_1" id="receiver_address_line_1"
+                                    maxlength="70" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 2</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_address_line_2" id="receiver_address_line_2"
+                                    maxlength="70" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 3</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_address_line_3" id="receiver_address_line_3"
+                                    maxlength="70" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 4</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_address_line_4" id="receiver_address_line_4"
+                                    maxlength="70" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>City</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_city" id="receiver_city" maxlength="30" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>State</span></div>
+                            <div class="div-box-col">
+                                <select class="div-box-input" name="receiver_state" id="receiver_state">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Pincode</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_pincode" id="receiver_pincode"
+                                    maxlength="6" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Mobile</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_mobile" id="receiver_mobile"
+                                    maxlength="25" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Email</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_email" id="receiver_email" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Transport Mode</span></div>
+                            <div class="div-box-col">
+                                <select class="div-box-select" name="receiver_transport_mode"
+                                    id="receiver_transport_mode">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Remark</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_remark" id="receiver_remark"
+                                    maxlength="70" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Head Line</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="receiver_head_line" id="receiver_head_line" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="receiver-controls">
+                                <button class="btn-primary" id="receiver_save"><u>S</u>ave</button>
+                                <button class="btn-delete" id="receiver_delete"><u>D</u>elete</button>
+                                <button class="btn-warning" id="receiver_new"><u>N</u>ew</button>
+                                <button class="btn-print" id="receiver_print">
+                                    <span class="printer-wrapper">
+                                        <span class="printer-container">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 92 75">
+                                                <path stroke-width="5" stroke="black"
+                                                    d="M12 37.5H80C85.2467 37.5 89.5 41.7533 89.5 47V69C89.5 70.933 87.933 72.5 86 72.5H6C4.067 72.5 2.5 70.933 2.5 69V47C2.5 41.7533 6.75329 37.5 12 37.5Z">
+                                                </path>
+                                                <mask fill="white" id="path-2-inside-1_30_7">
+                                                    <path
+                                                        d="M12 12C12 5.37258 17.3726 0 24 0H57C70.2548 0 81 10.7452 81 24V29H12V12Z">
+                                                    </path>
+                                                </mask>
+                                                <path mask="url(#path-2-inside-1_30_7)" fill="black"
+                                                    d="M7 12C7 2.61116 14.6112 -5 24 -5H57C73.0163 -5 86 7.98374 86 24H76C76 13.5066 67.4934 5 57 5H24C20.134 5 17 8.13401 17 12H7ZM81 29H12H81ZM7 29V12C7 2.61116 14.6112 -5 24 -5V5C20.134 5 17 8.13401 17 12V29H7ZM57 -5C73.0163 -5 86 7.98374 86 24V29H76V24C76 13.5066 67.4934 5 57 5V-5Z">
+                                                </path>
+                                                <circle fill="black" r="3" cy="49" cx="78"></circle>
+                                            </svg>
+                                        </span>
+
+                                        <span class="printer-page-wrapper">
+                                            <span class="printer-page"></span>
+                                        </span>
+                                    </span>
+                                    <span><u>P</u>rint</span>
+                                </button>
+                                <button class="btn-print" id="blank_print">
+                                    <span class="printer-wrapper">
+                                        <span class="printer-container">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 92 75">
+                                                <path stroke-width="5" stroke="black"
+                                                    d="M12 37.5H80C85.2467 37.5 89.5 41.7533 89.5 47V69C89.5 70.933 87.933 72.5 86 72.5H6C4.067 72.5 2.5 70.933 2.5 69V47C2.5 41.7533 6.75329 37.5 12 37.5Z">
+                                                </path>
+                                                <mask fill="white" id="path-2-inside-1_30_7">
+                                                    <path
+                                                        d="M12 12C12 5.37258 17.3726 0 24 0H57C70.2548 0 81 10.7452 81 24V29H12V12Z">
+                                                    </path>
+                                                </mask>
+                                                <path mask="url(#path-2-inside-1_30_7)" fill="black"
+                                                    d="M7 12C7 2.61116 14.6112 -5 24 -5H57C73.0163 -5 86 7.98374 86 24H76C76 13.5066 67.4934 5 57 5H24C20.134 5 17 8.13401 17 12H7ZM81 29H12H81ZM7 29V12C7 2.61116 14.6112 -5 24 -5V5C20.134 5 17 8.13401 17 12V29H7ZM57 -5C73.0163 -5 86 7.98374 86 24V29H76V24C76 13.5066 67.4934 5 57 5V-5Z">
+                                                </path>
+                                                <circle fill="black" r="3" cy="49" cx="78"></circle>
+                                            </svg>
+                                        </span>
+
+                                        <span class="printer-page-wrapper">
+                                            <span class="printer-page"></span>
+                                        </span>
+                                    </span>
+                                    Blank Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-sender">
+                    <div class="div-heading">
+                        <div class="section-heading">
+                            Sender Section
+                        </div>
+                    </div>
+                    <div class="div-box">
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Code</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_code" id="sender_code"
+                                    list="sender_code_list" />
+                                <datalist id="sender_code_list">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Name</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender" id="sender" list="sender_list" />
+                                <datalist id="sender_list">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 1</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_address_line_1" id="sender_address_line_1" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 2</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_address_line_2" id="sender_address_line_2" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 3</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_address_line_3" id="sender_address_line_3" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Add. Line 4</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_address_line_4" id="sender_address_line_4" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>City</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_city" id="sender_city" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>State</span></div>
+                            <div class="div-box-col">
+                                <select class="div-box-input" name="sender_state" id="sender_state">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Pincode</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_pincode" id="sender_pincode" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Mobile</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_mobile" id="sender_mobile" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="div-box-col"><span>Email</span></div>
+                            <div class="div-box-col">
+                                <input class="div-box-input" name="sender_email" id="sender_email" />
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="sender-controls">
+                                <button class="btn-primary" id="sender_save"><u>S</u>ave</button>
+                                <button class="btn-delete" id="sender_delete"><u>D</u>elete</button>
+                                <button class="btn-warning" id="sender_new"><u>N</u>ew</button>
+                            </div>
+                        </div>
+                        <div class="div-box-row">
+                            <div class="master-controls">
+                                <button class="btn-primary" id="export_data">Export Data</button>
+                                <button class="btn-warning" id="import_data">Import Data</button>
+                                <button class="btn-delete" id="clear_all_data">Clear All Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/constants.index.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
