@@ -34,7 +34,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-start;
     text-align: end;
 }
 
@@ -64,6 +64,7 @@ body {
     gap: 6px;
     flex-wrap: wrap;
     overflow: hidden;
+    font-size: 15px;
 }
 
 .receiver-address-section div {
@@ -81,7 +82,7 @@ body {
     gap: 10px;
 }
 
-.receiver-delivery-remark {
+.receiver-remark {
     font-size: x-large;
     text-align: center;
 }

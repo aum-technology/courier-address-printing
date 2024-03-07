@@ -1,5 +1,12 @@
 async function main() {
     /**
+     * Adjust For Design
+     */
+    adjustForDesign();
+    /**
+     * Adjust For Design End
+     */
+    /**
      * Initialization Start
      */
     setAutoIncrementIds(); /* Independent */

@@ -18,8 +18,7 @@ const receiverSave = document.querySelector('#receiver_save');
 const receiverDelete = document.querySelector('#receiver_delete');
 const receiverNew = document.querySelector('#receiver_new');
 const receiverPrint = document.querySelector('#receiver_print');
-const blankPrint = document.querySelector('#blank_print');
-const downloadPDF = document.querySelector('#download_pdf');
+const printAndSave = document.querySelector('#print_and_save');
 
 const senderCode = document.querySelector('#sender_code');
 const senderCodeList = document.querySelector('#sender_code_list');

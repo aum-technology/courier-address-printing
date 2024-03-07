@@ -78,6 +78,11 @@
     text-align: left;
 }
 
+.div-sender .div-box .div-box-row .div-box-col select,
+.div-receiver .div-box .div-box-row .div-box-col select {
+    background-color: #EFEFEF;
+}
+
 .div-receiver .div-box .div-box-row .div-box-col input,
 .div-sender .div-box .div-box-row .div-box-col input,
 .div-sender .div-box .div-box-row .div-box-col select,
@@ -91,6 +96,7 @@
     transition: all 0s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0px 0px 20px -18px;
     cursor: pointer;
+
 }
 
 .div-receiver .div-box .div-box-row .div-box-col input:hover,
@@ -217,7 +223,7 @@
     transition: all 0.3s;
 }
 
-.btn-print#blank_print {
+.btn-print#print_and_save {
     width: 175px;
     border: 2px solid black;
 }
@@ -284,7 +290,7 @@ button:active {
 .developer-details {
     font-size: large;
     margin-top: 20px;
-    position: fixed;
+    position: absolute;
     top: -18px;
     left: 0;
 }

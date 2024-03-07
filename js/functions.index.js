@@ -159,11 +159,6 @@ function bindKeys() {
     /** For Receiver Section */
     bindEnterKeyAndEscapeKey([
         {
-            element: receiverCode,
-            nextElem: receiver,
-            prevElem: receiverCode,
-        },
-        {
             element: receiver,
             nextElem: receiverAddressLine1,
             prevElem: receiverCode,
@@ -234,14 +229,9 @@ function bindKeys() {
     /** For Sender Section */
     bindEnterKeyAndEscapeKey([
         {
-            element: senderCode,
-            nextElem: sender,
-            prevElem: senderCode,
-        },
-        {
             element: sender,
             nextElem: senderAddressLine1,
-            prevElem: senderCode,
+            prevElem: sender,
         },
         {
             element: senderAddressLine1,
@@ -294,19 +284,19 @@ function bindKeys() {
     bindEnterKeyAndEscapeKeyForButton([
         {
             element: senderSave,
-            nextElem: senderCode,
+            nextElem: sender,
             prevElem: senderEmail,
             function: saveSender,
         },
         {
             element: senderNew,
-            nextElem: senderCode,
+            nextElem: sender,
             prevElem: senderEmail,
             function: setSenderSectionForNew,
         },
         {
             element: senderDelete,
-            nextElem: senderCode,
+            nextElem: sender,
             prevElem: senderEmail,
             function: deleteSender,
         }
@@ -316,33 +306,33 @@ function bindKeys() {
     bindEnterKeyAndEscapeKeyForButton([
         {
             element: receiverSave,
-            nextElem: receiverCode,
+            nextElem: receiver,
             prevElem: receiverHeadLine,
             function: saveReceiver,
         },
         {
             element: receiverNew,
-            nextElem: receiverCode,
+            nextElem: receiver,
             prevElem: receiverHeadLine,
             function: setReceiverSectionForNew,
         },
         {
             element: receiverDelete,
-            nextElem: receiverCode,
+            nextElem: receiver,
             prevElem: receiverHeadLine,
             function: deleteReceiver,
         },
         {
             element: receiverPrint,
-            nextElem: receiverCode,
+            nextElem: receiver,
             prevElem: receiverHeadLine,
             function: printReceiver,
         },
         {
-            element: blankPrint,
-            nextElem: receiverCode,
+            element: printAndSave,
+            nextElem: receiver,
             prevElem: receiverHeadLine,
-            function: printBlank,
+            function: printNSave,
         }
     ]);
     /** Binding For Receiver Area End */
@@ -407,19 +397,11 @@ function bindPrintEvent() {
         }
     })
 }
-function printBlank() {
-    printReceiver({ shouldPrintBlank: true });
+function printNSave() {
+    printReceiver();
+    saveReceiver();
 }
 function printReceiver(params) {
-    if (params == null) {
-        params = {};
-    }
-    if (!params.hasOwnProperty('shouldPrintBlank')) {
-        params.shouldPrintBlank = false;
-    }
-    if (!receiverCode.getAttribute('receiver-id') && !params.shouldPrintBlank) {
-        return;
-    }
     let receiverData = {
         name: receiver.value.trim(),
         address_line_1: receiverAddressLine1.value.trim(),
@@ -442,16 +424,11 @@ function printReceiver(params) {
     };
     saveDataToStorage({
         currentPrintAddress: JSON.stringify({
-            sender: params.shouldPrintBlank ? {} : senderData,
-            receiver: params.shouldPrintBlank ? {} : receiverData,
-            shouldPrintBlank: params.shouldPrintBlank
+            sender: senderData,
+            receiver: receiverData
         })
     }).then(() => {
-        chrome.windows.create({
-            url: "../html/printing.html",
-            type: "panel",
-            state: "maximized"
-        });
+        window.open("../html/printing.html");
     });
 
 }
@@ -467,7 +444,7 @@ function saveSender() {
             return;
         }
     }
-    if (!senderCode.value.trim() || !sender.value.trim()) {
+    if (!sender.value.trim()) {
         return;
     }
     let senderData = {
@@ -506,7 +483,7 @@ function saveSender() {
                 });
             }
             setSenderSectionForNew(true);
-            senderCode.focus();
+            sender.focus();
         } else {
             alert(r);
             console.log(r);
@@ -525,7 +502,7 @@ function saveReceiver() {
             return;
         }
     }
-    if (!receiverCode.value.trim() || !receiver.value.trim()) {
+    if (!receiver.value.trim()) {
         return;
     }
     let receiverData = {
@@ -565,7 +542,7 @@ function saveReceiver() {
                 });
             }
             setReceiverSectionForNew(true);
-            receiverCode.focus();
+            receiver.focus();
         } else {
             alert(r);
             console.log(r);
@@ -752,4 +729,33 @@ function bindFunctionsForMasterActions() {
             setReceiverSectionForNew(true);
         }
     };
+}
+function adjustForDesign() {
+
+    if (window.screen.width >= 700 && window.screen.width <= 799) {
+        document.body.style.zoom = "50%";
+    } else if (window.screen.width >= 800 && window.screen.width <= 899) {
+        document.body.style.zoom = "50%";
+    } else if (window.screen.width >= 900 && window.screen.width <= 999) {
+        document.body.style.zoom = "60%";
+    } else if (window.screen.width >= 1000 && window.screen.width <= 1099) {
+        document.body.style.zoom = "70%";
+    } else if (window.screen.width >= 1100 && window.screen.width <= 1199) {
+        document.body.style.zoom = "70%";
+    } else if (window.screen.width >= 1200 && window.screen.width <= 1299) {
+        document.body.style.zoom = "70%";
+    } else if (window.screen.width >= 1300 && window.screen.width <= 1399) {
+        document.body.style.zoom = "75%";
+    } else if (window.screen.width >= 1400 && window.screen.width <= 1499) {
+        document.body.style.zoom = "75%";
+    }
+    else if (window.screen.width >= 1500 && window.screen.width <= 1599) {
+        document.body.style.zoom = "75%";
+    }
+    else if (window.screen.width >= 1600 && window.screen.width <= 1699) {
+        document.body.style.zoom = "90%";
+    }
+    else {
+        document.body.style.zoom = "100%";
+    }
 }
