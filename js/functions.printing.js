@@ -65,8 +65,8 @@ function populateAddress(data) {
     } else {
         senderContact.innerHTML = data.sender.contact.replace(/,(?=[^,]*$)/, '');
     }
-    // window.setTimeout(() => {
-    //     window.print();
-    //     window.close();
-    // }, 300);
+    window.setTimeout(() => {
+        window.print();
+        window.close();
+    }, 300);
 }
