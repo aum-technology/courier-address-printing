@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "author": "Aum Technology",
   "name": "Courier Address Printing",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Courier Address Printing",
   "action": {
     "default_popup": "html/popup.html",
